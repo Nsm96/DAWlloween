@@ -1,0 +1,30 @@
+[
+    {
+        "usuario": "admin",
+        "password": "123",
+        "email": "admin@dawlloween.com",
+        "perfil": "admin",
+        "pregunta": "vampiro"
+    },
+    {
+        "usuario": "nico",
+        "password": "nico123",
+        "email": "nico@dawlloween.com",
+        "perfil": "usuario",
+        "pregunta": "fantasma"
+    },
+    {
+        "usuario": "Juan",
+        "password": "1234",
+        "email": "Juanito@juan.com",
+        "perfil": "usuario",
+        "pregunta": "Yo"
+    },
+    {
+        "usuario": "pepe",
+        "password": "123123",
+        "email": "pepe@pepe.com",
+        "perfil": "usuario",
+        "pregunta": "pepe"
+    }
+]

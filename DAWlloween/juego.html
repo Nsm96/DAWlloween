@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DAWlloween</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Creepster&family=Roboto:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Mystery+Quest&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="js/juego.js"></script>
+    <script src="js/main.js"></script>
+</head>
+
+<body>
+
+    <header>
+<nav>
+    <ul>
+        <li class="solo-invitado"><a href="index.html">Inicio</a></li>
+        <li><a href="recetas.html">Recetas</a></li>
+        <li><a href="juego.html">Minijuego</a></li>
+        <li class="solo-login"><a href="correojack.html">Correo de Jack</a></li>
+        <li><a href="php/login.php">Acceso</a></li>
+    </ul>
+</nav>
+    </header>
+
+   <main>
+    <section class="game-container">
+        <h1>El Grimorio del Olvido</h1>
+        <div class="juego-card-morada">
+            <p>Encuentra las 6 parejas de hechizos para liberar el área privada.</p>
+
+            <div id="tablero-memoria" class="memory-grid"></div>
+
+            <div class="game-stats">
+                <div class="stats-row">
+                    <span>Tiempo: <strong id="tiempo">0s</strong></span>
+                    <span>Intentos: <strong id="contador-intentos">0</strong></span>
+                </div>
+
+                <div class="controls-row">
+                    <button id="btn-comodin" class="btn-secundario" onclick="usarComodin()">👁️ Ojo de Bruja (+3 intentos)</button>
+                    <button id="btn-reiniciar" onclick="iniciarJuego()">Reiniciar Partida</button>
+                </div>
+            </div>
+
+            <div id="mensaje-victoria" class="alert alert-success" style="display: none;"></div>
+        </div>
+    </section>
+</main>
+    </main>
+    <footer>
+        <p>DAWlloween &copy; 2026 - Proyecto Cross-curricular</p>
+        <a href="./aboutus.html">Sobre mí</a>
+    </footer>
+</body>
+
+</html>

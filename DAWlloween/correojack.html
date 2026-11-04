@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>El Correo de Jack - DAWlloween</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mystery+Quest&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header>
+    <nav>
+        <ul>
+            <li><a href="aboutus.html">Inicio</a></li>
+            <li><a href="recetas.html">Recetas</a></li>
+            <li><a href="juego.html">Minijuego</a></li>
+            <li><a href="php/login.php">Acceso</a></li>
+        </ul>
+    </nav>
+    <div class="header-user solo-login" id="user-badge-container"></div>
+</header>
+
+    <main>
+        <h1>El Correo de Jack</h1>
+        <p style="text-align: center; color: var(--color-texto-mutado); margin-bottom: 2rem;">
+            Envía una lechuza digital a Jack si tienes alguna consulta sobre los hechizos o recetas.
+        </p>
+
+        <form id="form-correo-jack">
+            <div class="form-group">
+                <label for="asunto">Asunto</label>
+                <input type="text" id="asunto" name="asunto" placeholder="Ej. Duda con las Manzanas Envenenadas" required>
+            </div>
+
+            <div class="form-group">
+                <label for="mensaje">Mensaje</label>
+                <textarea id="mensaje" name="mensaje" rows="5" placeholder="Escribe tu mensaje para Jack..." required></textarea>
+            </div>
+
+            <button type="submit" class="btn">Enviar Mensaje 🎃</button>
+        </form>
+
+        <div id="mensaje-correo" class="alert alert-success" style="display: none; margin-top: 1.5rem;"></div>
+    </main>
+
+    <footer>
+        <a href="#">Sobre mí</a>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

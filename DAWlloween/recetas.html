@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recetas - DAWlloween</title>
+    <link rel="stylesheet" href="css/styles.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Creepster&family=Roboto:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Mystery+Quest&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header>
+<nav>
+    <ul>
+        <li class="solo-invitado"><a href="index.html">Inicio</a></li>
+        <li><a href="recetas.html">Recetas</a></li>
+        <li><a href="juego.html">Minijuego</a></li>
+        <li class="solo-login"><a href="correojack.html">Correo de Jack</a></li>
+        <li><a href="php/login.php">Acceso</a></li>
+    </ul>
+</nav>
+    </header>
+
+    <main class="recetas-wrapper">
+        
+        <div class="recetas-card-container">
+            <h1 class="recetas-titulo">Recetas</h1>
+            <div class="recetas-grid">
+                <!-- Receta 1 -->
+                <div class="receta-item" onclick="abrirModal('receta1')">
+                    <div class="receta-foto-box">
+                        <img src="img/receta1.jpg" alt="Dedos de Bruja">
+                    </div>
+                    <p class="receta-nombre">Dedos de Bruja</p>
+                </div>
+
+                <!-- Receta 2 -->
+                <div class="receta-item" onclick="abrirModal('receta2')">
+                    <div class="receta-foto-box">
+                        <img src="img/receta2.jpg" alt="Poción Mágica">
+                    </div>
+                    <p class="receta-nombre">Poción Mágica</p>
+                </div>
+
+                <!-- Receta 3 -->
+                <div class="receta-item" onclick="abrirModal('receta3')">
+                    <div class="receta-foto-box">
+                        <img src="img/receta3.jpg" alt="Ojos de Zombi">
+                    </div>
+                    <p class="receta-nombre">Ojos de Zombi</p>
+                </div>
+
+                <!-- Receta 4 -->
+                <div class="receta-item" onclick="abrirModal('receta4')">
+                    <div class="receta-foto-box">
+                        <img src="img/receta4.jpg" alt="Tarta de Calabaza">
+                    </div>
+                    <p class="receta-nombre">Tarta de Calabaza</p>
+                </div>
+
+                <!-- Receta 5 -->
+                <div class="receta-item" onclick="abrirModal('receta5')">
+                    <div class="receta-foto-box">
+                        <img src="img/receta5.jpg" alt="Galletas Monstruo">
+                    </div>
+                    <p class="receta-nombre">Galletas Monstruo</p>
+                </div>
+
+                <!-- Receta 6 -->
+                <div class="receta-item" onclick="abrirModal('receta6')">
+                    <div class="receta-foto-box">
+                        <img src="img/receta6.jpg" alt="Manzanas Envenenadas">
+                    </div>
+                    <p class="receta-nombre">Manzanas Envenenadas</p>
+                </div>
+
+                <!-- Receta 7 -->
+                <div class="receta-item" onclick="abrirModal('receta7')">
+                    <div class="receta-foto-box">
+                        <img src="img/receta7.jpg" alt="Sopa de Murciélago">
+                    </div>
+                    <p class="receta-nombre">Sopa de Murciélago</p>
+                </div>
+
+                <!-- Receta 8 -->
+                <div class="receta-item" onclick="abrirModal('receta8')">
+                    <div class="receta-foto-box">
+                        <img src="img/receta8.jpg" alt="Cupcakes Momia">
+                    </div>
+                    <p class="receta-nombre">Cupcakes Momia</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div id="modal-receta" class="modal-overlay" onclick="cerrarModalFuera(event)">
+        <div class="modal-contenido">
+            <span class="modal-cerrar" onclick="cerrarModal()">&times;</span>
+            <img id="modal-img" src="" alt="Receta">
+            <h2 id="modal-titulo"></h2>
+            <p id="modal-desc" class="modal-desc"></p>
+            <h3>Ingredientes:</h3>
+            <ul id="modal-ingredientes"></ul>
+            <h3>Preparación:</h3>
+            <p id="modal-pasos"></p>
+        </div>
+    </div>
+
+    <footer>
+        <a href="aboutus.html">Sobre mí</a>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script>
+        const datosRecetas = {
+            'receta1': {
+                titulo: 'Dedos de Bruja Sangrientos 🧟‍♂️',
+                img: 'img/receta1.jpg',
+                desc: 'Crujientes galletas de mantequilla con forma de dedo y uña de almendra.',
+                ingredientes: ['100g Mantequilla', '50g Azúcar', '1 Huevo', '250g Harina', 'Almendras y mermelada'],
+                pasos: 'Mezcla los ingredientes, moldea la masa con forma de dedos marcando los nudillos con un cuchillo, pega una almendra con mermelada en la punta y hornea 15 minutos a 180°C.'
+            },
+            'receta2': {
+                titulo: 'Poción Mágica de Bruja 🧪',
+                img: 'img/receta2.jpg',
+                desc: 'Bebida chispeante y refrescante con resplandor verdoso.',
+                ingredientes: ['500ml Refresco de lima-limón', '200ml Zumo de piña', 'Colorante verde', 'Gominolas de gusano'],
+                pasos: 'Mezcla los líquidos bien fríos en una jarra o caldero, añade colorante vegetal verde y sirve en vasos decorados con gominolas.'
+            },
+            'receta3': {
+                titulo: 'Ojos de Zombi Rellenos 👁️',
+                img: 'img/receta3.jpg',
+                desc: 'Aperitivo salado terrorífico a base de huevos cocidos.',
+                ingredientes: ['6 Huevos cocidos', '1 lata de Atún', '2 cdas. Mayonesa', 'Aceitunas negras', 'Ketchup'],
+                pasos: 'Corta los huevos por la mitad, mezcla las yemas con atún y mayonesa. Rellena las claras, coloca una rodaja de aceituna en el centro y dibuja venas con un palillo mojado en ketchup.'
+            },
+            'receta4': {
+                titulo: 'Tarta de Calabaza Embrujada 🎃',
+                img: 'img/receta4.jpg',
+                desc: 'El postre clásico de otoño con especias aromáticas.',
+                ingredientes: ['400g Puré de calabaza', '200ml Nata', '2 Huevos', '100g Azúcar Moreno', 'Canela y jengibre'],
+                pasos: 'Mezcla el puré con el resto de ingredientes, vierte sobre una base de masa quebrada y hornea a 180°C durante 40 minutos.'
+            },
+            'receta5': {
+                titulo: 'Galletas Monstruo 👾',
+                img: 'img/receta5.jpg',
+                desc: 'Galletas de colores con ojos comestibles.',
+                ingredientes: ['200g Harina', '100g Mantequilla', 'Colorantes alimentarios', 'Ojos de azúcar'],
+                pasos: 'Haz bolas de masa coloreada, coloca ojos de azúcar en la superficie y hornea 10-12 minutos.'
+            },
+            'receta6': {
+                titulo: 'Manzanas Envenenadas 🍎',
+                img: 'img/receta6.jpg',
+                desc: 'Manzanas caramelizadas en color negro brillante.',
+                ingredientes: ['4 Manzanas rojas', '300g Azúcar', '100ml Agua', 'Colorante negro o morado'],
+                pasos: 'Prepara un caramelo con el azúcar, agua y colorante. Clava brochetas en las manzanas y sumérgelas completamente.'
+            },
+            'receta7': {
+                titulo: 'Sopa de Murciélago 🦇',
+                img: 'img/receta7.jpg',
+                desc: 'Crema morada de lombarda con picatostes en forma de murciélago.',
+                ingredientes: ['1/2 Lombarda', '2 Patatas', 'Caldo de verduras', 'Queso crema'],
+                pasos: 'Cuce la lombarda con las patatas, tritura con el queso crema hasta obtener un tono púrpura intenso y sirve caliente.'
+            },
+            'receta8': {
+                titulo: 'Cupcakes Momia 🧁',
+                img: 'img/receta8.jpg',
+                desc: 'Bizcochitos de chocolate decorados con tiras de crema.',
+                ingredientes: ['6 Cupcakes de chocolate', 'Buttercream blanco', 'Chispas de chocolate para los ojos'],
+                pasos: 'Aplica el buttercream con una boquilla plana cruzando tiras simulando vendajes de momia y añade dos chispas como ojos.'
+            }
+        };
+
+        function abrirModal(idReceta) {
+            const receta = datosRecetas[idReceta];
+            if (!receta) return;
+
+            document.getElementById('modal-img').src = receta.img;
+            document.getElementById('modal-titulo').textContent = receta.titulo;
+            document.getElementById('modal-desc').textContent = receta.desc;
+            document.getElementById('modal-pasos').textContent = receta.pasos;
+
+            const ulIngredientes = document.getElementById('modal-ingredientes');
+            ulIngredientes.innerHTML = '';
+            receta.ingredientes.forEach(ing => {
+                const li = document.createElement('li');
+                li.textContent = ing;
+                ulIngredientes.appendChild(li);
+            });
+
+            document.getElementById('modal-receta').classList.add('activo');
+        }
+
+        function cerrarModal() {
+            document.getElementById('modal-receta').classList.remove('activo');
+        }
+
+        function cerrarModalFuera(e) {
+            if (e.target.classList.contains('modal-overlay')) {
+                cerrarModal();
+            }
+        }
+    </script>
+</body>
+</html> 
