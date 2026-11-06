@@ -63,14 +63,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <header>
         <nav>
             <ul>
-                <li><a href="../index.html">Inicio</a></li>
+                <li><a href="../abouts.html">Inicio</a></li>
                 <li><a href="login.php">Acceso</a></li>
             </ul>
         </nav>
     </header>
 
     <main class="form-container">
-        <h2>Alta de Nuevo Usuario</h2>
+        <h2><center>Alta de Nuevo Usuario</center></h2>
 
         <?php if (!empty($mensajeError)): ?>
             <div class="alert alert-error">⚠️ <?php echo htmlspecialchars($mensajeError); ?></div>

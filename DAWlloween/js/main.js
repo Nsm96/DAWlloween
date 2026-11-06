@@ -1,33 +1,29 @@
 document.addEventListener('DOMContentLoaded', () => {
-
-
+    
     const paginasProtegidas = ['recetas.html', 'juego.html', 'correojack.html'];
-
+    
     let paginaActual = window.location.pathname.split('/').pop();
     if (!paginaActual || paginaActual === '') {
         paginaActual = 'aboutus.html';
     }
-
-
+    
     fetch('php/mostrar_usuarios.php')
         .then(response => response.json())
         .then(data => {
             const usuarioAutenticado = data && data.usuario;
 
             if (usuarioAutenticado) {
-
                 localStorage.setItem('usuario', data.usuario);
+                document.body.classList.add('usuario-logueado');
 
                 pintarHeaderUsuario(data.usuario);
 
                 gestionarVisibilidad(['recetas', 'recetas.html', 'juego.html', 'correojack.html', '.solo-login'], true);
                 gestionarVisibilidad(['login.php', '.solo-invitado'], false);
 
-                document.body.classList.add('usuario-logueado');
-
             } else {
-
                 localStorage.removeItem('usuario');
+                document.body.classList.remove('usuario-logueado');
 
                 const badgeExistente = document.querySelector('.header-user');
                 if (badgeExistente) badgeExistente.remove();
@@ -43,7 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
         })
         .catch(err => {
             console.error('Error al comprobar la sesión:', err);
-
+            
             if (paginasProtegidas.includes(paginaActual)) {
                 window.location.href = 'php/login.php';
             }
@@ -64,41 +60,46 @@ document.addEventListener('DOMContentLoaded', () => {
                 method: 'POST',
                 body: formData
             })
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error('Error en la respuesta del servidor');
-                    }
-                    return response.text();
-                })
-                .then(data => {
-                    alertaRespuesta.className = 'alert alert-success';
-                    alertaRespuesta.textContent = `¡Mensaje enviado con éxito a Jack! Te responderá antes de medianoche. 🎃`;
-                    alertaRespuesta.style.display = 'block';
-                    formJack.reset();
-                })
-                .catch(error => {
-                    console.error('Error al enviar:', error);
-                    alertaRespuesta.className = 'alert alert-error';
-                    alertaRespuesta.textContent = 'Hubo un error al entregar el mensaje. Inténtalo de nuevo.';
-                    alertaRespuesta.style.display = 'block';
-                })
-                .finally(() => {
-                    if (btnEnviar) btnEnviar.disabled = false;
-                });
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Error en la respuesta del servidor');
+                }
+                return response.text();
+            })
+            .then(data => {
+                alertaRespuesta.className = 'alert alert-success';
+                alertaRespuesta.textContent = `¡Mensaje enviado con éxito a Jack! Te responderá antes de medianoche. 🎃`;
+                alertaRespuesta.style.display = 'block';
+                formJack.reset();
+            })
+            .catch(error => {
+                console.error('Error al enviar:', error);
+                alertaRespuesta.className = 'alert alert-error';
+                alertaRespuesta.textContent = 'Hubo un error al entregar el mensaje. Inténtalo de nuevo.';
+                alertaRespuesta.style.display = 'block';
+            })
+            .finally(() => {
+                if (btnEnviar) btnEnviar.disabled = false;
+            });
         });
     }
 });
 
-
 function pintarHeaderUsuario(nombreUsuario) {
     let container = document.getElementById('user-badge-container');
     const header = document.querySelector('header');
+    const footer = document.querySelector('footer');
 
-    if (!container && header) {
+    const esMovil = window.innerWidth <= 768;
+    const destino = (esMovil && footer) ? footer : header;
+
+    if (!container && destino) {
         container = document.createElement('div');
         container.className = 'header-user solo-login';
         container.id = 'user-badge-container';
-        header.appendChild(container);
+        destino.appendChild(container);
+    } else if (container && destino && container.parentElement !== destino) {
+        destino.appendChild(container);
     }
 
     if (container) {
@@ -112,6 +113,13 @@ function pintarHeaderUsuario(nombreUsuario) {
         `;
     }
 }
+
+window.addEventListener('resize', () => {
+    const usuarioGuardado = localStorage.getItem('usuario');
+    if (usuarioGuardado) {
+        pintarHeaderUsuario(usuarioGuardado);
+    }
+});
 
 function gestionarVisibilidad(elementos, mostrar) {
     const estadoDisplay = mostrar ? '' : 'none';

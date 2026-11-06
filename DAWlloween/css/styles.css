@@ -33,8 +33,6 @@ a, button, input[type="submit"] {
     cursor: url('../img/cursor.png'), pointer;
 }
 
-
-
 h1, h2, h3 {
     font-family: var(--font-heading);
     color: var(--color-primario);
@@ -53,18 +51,32 @@ h1,
     margin-bottom: 1.5rem;
 }
 
-
 header {
-    position: relative;
     display: flex;
-    justify-content: center;
+    justify-content: center; 
     align-items: center;
+    padding: 1rem 2rem;
     background-color: var(--bg-card-alt);
     border-bottom: 2px solid var(--color-primario);
-    padding: 15px 25px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    position: relative; 
+}
+header #user-badge-container,
+header .header-user {
+    position: absolute !important;
+    right: 2rem !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    margin: 0 !important;
 }
 
+header nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}   
 nav ul {
     list-style: none;
     display: flex;
@@ -88,12 +100,14 @@ nav a:hover {
     text-shadow: 0 0 8px var(--color-toxico);
 }
 
-
+#user-badge-container,
 .header-user {
-    position: absolute;
-    right: 25px;
-    top: 50%;
-    transform: translateY(-50%);
+    position: static !important;
+    top: auto !important;
+    left: auto !important;
+    right: auto !important;
+    bottom: auto !important;
+    transform: none !important;
 }
 
 .user-badge {
@@ -125,9 +139,16 @@ nav a:hover {
 }
 
 .solo-login {
-    display: none;
+    display: none !important;
 }
 
+body.usuario-logueado .solo-login {
+    display: block !important;
+}
+
+body.usuario-logueado .solo-invitado {
+    display: none !important;
+}
 
 main,
 .recetas-wrapper {
@@ -142,7 +163,6 @@ main,
     box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
     box-sizing: border-box;
 }
-
 
 form {
     display: flex;
@@ -243,7 +263,6 @@ button:disabled {
     color: var(--color-toxico);
 }
 
-
 .game-container {
     text-align: center;
 }
@@ -321,7 +340,6 @@ button:disabled {
     flex-wrap: wrap;
 }
 
-
 .recetas-card-container {
     width: 100%;
     background: transparent;
@@ -369,7 +387,6 @@ button:disabled {
     margin-top: 8px;
     font-weight: bold;
 }
-
 
 .modal-overlay {
     display: none;
@@ -463,8 +480,16 @@ footer a:hover {
     text-decoration: underline;
 }
 
-
 @media (max-width: 768px) {
+    header {
+        justify-content: center;
+        padding: 0.8rem 1rem;
+    }
+
+    header nav ul {
+        gap: 10px 15px;
+    }
+
     .recetas-grid {
         grid-template-columns: repeat(2, 1fr);
     }
@@ -474,48 +499,23 @@ footer a:hover {
         padding: 20px;
         width: 95%;
     }
-}
 
-.solo-login {
-    display: none !important;
-}
-
-
-body.usuario-logueado .solo-login {
-    display: block !important;
-}
-
-
-body.usuario-logueado .solo-invitado {
-    display: none !important;
-}
-
-
-@media (max-width: 768px) {
-    header {
-        flex-direction: column;
-        gap: 12px;
-        padding: 1rem;
-        height: auto;
-    }
-
-    header nav ul {
+    footer {
         display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 10px 15px;
-        padding: 0;
-        margin: 0;
-        list-style: none;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        padding: 1.5rem 1rem;
     }
 
-    .header-user {
+    footer #user-badge-container {
+        display: block !important;
         margin-top: 5px;
-        justify-content: center;
     }
 
-    .user-badge {
+    footer .user-badge {
         font-size: 0.85rem;
-        padding: 4px 10px;
+        padding: 6px 14px;
+        background-color: rgba(0, 0, 0, 0.4);
     }
 }

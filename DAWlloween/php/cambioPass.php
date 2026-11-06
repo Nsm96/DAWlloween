@@ -61,14 +61,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <header>
         <nav>
             <ul>
-                <li><a href="../index.html">Inicio</a></li>
+                <li><a href="../aboutus.html">Inicio</a></li>
                 <li><a href="login.php">Acceso</a></li>
             </ul>
         </nav>
     </header>
 
     <main class="form-container">
-        <h2>Cambiar Contraseña</h2>
+        <h2><center>Cambiar Contraseña</center></h2>
 
         <?php if (!empty($mensajeError)): ?>
             <div class="alert alert-error">⚠️ <?php echo htmlspecialchars($mensajeError); ?></div>
